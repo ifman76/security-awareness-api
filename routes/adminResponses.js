@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         r.answer_index,
         r.answer,
         q.answer AS correct_answer,
-        q.author AS author
+        q.source AS author
       FROM responses r
       LEFT JOIN questions q ON r.question = q.question
       ORDER BY r.participant_id, r.section, r.id
