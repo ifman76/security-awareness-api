@@ -19,6 +19,10 @@ const devicesRoute = require('./routes/devices');
 const finalResultsRoute = require('./routes/finalResults');
 const responsesRoute = require('./routes/responses');
 
+const adminResultsRoute = require('./routes/adminResults');  // ✅ 추가
+app.use('/admin/results', adminResultsRoute);                // ✅ 경로 연결
+
+
 app.use('/questions', questionsRoute);
 app.use('/certified-devices', devicesRoute);
 app.use('/final-results', finalResultsRoute);
