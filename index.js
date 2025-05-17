@@ -6,6 +6,10 @@ const app = express();
 const questionsRoute = require('./routes/questions');
 const devicesRoute = require('./routes/devices'); // ✅ 추가
 
+const finalResultsRoute = require('./routes/finalResults');
+app.use('/final-results', finalResultsRoute);
+
+
 app.use(cors());
 app.use(express.json());
 app.use('/questions', questionsRoute);
