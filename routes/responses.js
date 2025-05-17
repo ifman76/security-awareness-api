@@ -4,6 +4,7 @@ const db = require('../db');
 
 // 사용자 응답 저장
 router.post('/', async (req, res) => {
+  console.log('📥 응답 요청 바디:', req.body);
   const { participant_id, section, question, answer, answer_index } = req.body;
 
   if (!question || answer === undefined) {
