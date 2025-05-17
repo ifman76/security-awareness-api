@@ -3,6 +3,10 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const adminResponsesRoute = require('./routes/adminResponses'); // ✅ 새 파일 import
+app.use('/admin/responses', adminResponsesRoute); // ✅ 경로 설정
+
+
 
 const allowedOrigins = ['https://security-awareness-frontend.vercel.app'];
 app.use(cors({
