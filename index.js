@@ -10,6 +10,10 @@ const adminQuestionStatsRoute = require('./routes/adminQuestionStats');
 app.use('/admin/question-stats', adminQuestionStatsRoute);
 
 
+const adminFinalResultsRoute = require('./routes/adminFinalResults');
+app.use('/admin/final-results', adminFinalResultsRoute);
+
+
 
 const allowedOrigins = ['https://security-awareness-frontend.vercel.app'];
 app.use(cors({
