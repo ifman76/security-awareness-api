@@ -6,6 +6,9 @@ const app = express();
 const adminResponsesRoute = require('./routes/adminResponses'); // ✅ 새 파일 import
 app.use('/admin/responses', adminResponsesRoute); // ✅ 경로 설정
 
+const adminQuestionStatsRoute = require('./routes/adminQuestionStats');
+app.use('/admin/question-stats', adminQuestionStatsRoute);
+
 
 
 const allowedOrigins = ['https://security-awareness-frontend.vercel.app'];
