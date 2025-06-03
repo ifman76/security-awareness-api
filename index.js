@@ -3,17 +3,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const adminResponsesRoute = require('./routes/adminResponses'); // ✅ 새 파일 import
-app.use('/admin/responses', adminResponsesRoute); // ✅ 경로 설정
-
-const adminQuestionStatsRoute = require('./routes/adminQuestionStats');
-app.use('/admin/question-stats', adminQuestionStatsRoute);
-
-
-const adminFinalResultsRoute = require('./routes/adminFinalResults');
-app.use('/admin/final-results', adminFinalResultsRoute);
-
-
 
 const allowedOrigins = ['https://security-awareness-frontend.vercel.app'];
 app.use(cors({
@@ -23,6 +12,19 @@ app.use(cors({
 }));
 
 app.use(express.json());  // 반드시 필요
+
+
+const adminResponsesRoute = require('./routes/adminResponses'); // ✅ 새 파일 import
+const adminQuestionStatsRoute = require('./routes/adminQuestionStats');
+const adminFinalResultsRoute = require('./routes/adminFinalResults');
+
+app.use('/admin/responses', adminResponsesRoute); // ✅ 경로 설정
+app.use('/admin/question-stats', adminQuestionStatsRoute);
+app.use('/admin/final-results', adminFinalResultsRoute);
+
+
+
+
 
 // 라우터 등록
 const questionsRoute = require('./routes/questions');
