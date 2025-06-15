@@ -24,10 +24,6 @@ app.use('/admin/question-stats', adminQuestionStatsRoute);
 app.use('/admin/final-results', adminFinalResultsRoute);
 app.use('/api', pilotFeedbackRoute); // ✅ 라우터 연결
 
-// 서버 실행
-app.listen(process.env.PORT || 3000, () => {
-  console.log('✅ Server is running');
-});
 
 
 
