@@ -17,10 +17,17 @@ app.use(express.json());  // 반드시 필요
 const adminResponsesRoute = require('./routes/adminResponses'); // ✅ 새 파일 import
 const adminQuestionStatsRoute = require('./routes/adminQuestionStats');
 const adminFinalResultsRoute = require('./routes/adminFinalResults');
+const pilotFeedbackRoute = require('./routes/pilotFeedback');
 
 app.use('/admin/responses', adminResponsesRoute); // ✅ 경로 설정
 app.use('/admin/question-stats', adminQuestionStatsRoute);
 app.use('/admin/final-results', adminFinalResultsRoute);
+app.use('/api', pilotFeedbackRoute); // ✅ 라우터 연결
+
+// 서버 실행
+app.listen(process.env.PORT || 3000, () => {
+  console.log('✅ Server is running');
+});
 
 
 
