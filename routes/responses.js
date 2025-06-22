@@ -6,9 +6,9 @@ console.log(req.body);
 
 // 사용자 응답 저장
 router.post('/', async (req, res) => {
-  const { participant_id, section, no, answer, answer_index } = req.body;
+  const { participant_id, section, no: question, answer, answer_index } = req.body;
 
-  if (!no || answer === undefined) {
+  if (!question || answer === undefined) {
     return res.status(400).json({ error: 'no and answer are required' });
   }
 
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
       `INSERT INTO responses (participant_id, section, question, answer, answer_index)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING *`,
-      [participant_id, section, no, answer, answer_index]
+      [participant_id, section, question, answer, answer_index]
     );
     res.status(201).json(result.rows[0]);
   } catch (error) {
