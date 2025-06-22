@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+console.log(req.body);
+
 // 사용자 응답 저장
 router.post('/', async (req, res) => {
   const { participant_id, section, no, answer, answer_index } = req.body;
