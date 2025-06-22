@@ -6,8 +6,8 @@ const db = require('../db');
 router.post('/', async (req, res) => {
   const { participant_id, section, no, answer, answer_index } = req.body;
 
-  if (!question || answer === undefined) {
-    return res.status(400).json({ error: 'question and answer are required' });
+  if (!no || answer === undefined) {
+    return res.status(400).json({ error: 'no and answer are required' });
   }
 
   try {
