@@ -4,7 +4,7 @@ const db = require('../db');
 
 // 사용자 응답 저장
 router.post('/', async (req, res) => {
-  const { participant_id, section, no answer, answer_index } = req.body;
+  const { participant_id, section, no, answer, answer_index } = req.body;
 
   if (!question || answer === undefined) {
     return res.status(400).json({ error: 'question and answer are required' });
