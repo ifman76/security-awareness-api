@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
       participant_id, ageGroup, gender, occupation,
       aiExperience, selfAssessment,
       knowledgeScore, deviceScore, behaviorScore, totalScore,
-      ownedDevices, timestamp
+      ownedDevices, timestamp, bonusScore
     } = req.body;
 
     const result = await db.query(
@@ -17,14 +17,14 @@ router.post('/', async (req, res) => {
         participant_id, age_group, gender, occupation,
         ai_experience, self_assessment,
         knowledge_score, device_score, behavior_score, total_score,
-        owned_devices, timestamp
-      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
+        owned_devices, timestamp, bonus_score
+      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, $13)
        RETURNING *`,
       [
         participant_id, ageGroup, gender, occupation,
         aiExperience, selfAssessment,
         knowledgeScore, deviceScore, behaviorScore, totalScore,
-        JSON.stringify(ownedDevices), timestamp
+        JSON.stringify(ownedDevices), timestamp, bonusScore
       ]
     );
 
